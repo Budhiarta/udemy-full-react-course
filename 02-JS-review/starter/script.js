@@ -4,14 +4,7 @@ const data = [
     title: "The Lord of the Rings",
     publicationDate: "1954-07-29",
     author: "J. R. R. Tolkien",
-    genres: [
-      "fantasy",
-      "high-fantasy",
-      "adventure",
-      "fiction",
-      "novels",
-      "literature",
-    ],
+    genres: ["high-fantasy", "adventure", "fiction", "novels", "literature"],
     hasMovieAdaptation: true,
     pages: 1216,
     translations: {
@@ -142,3 +135,195 @@ function getBooks() {
 function getBook(id) {
   return data.find((d) => d.id === id);
 }
+
+// /*
+// const book = getBook(4);
+// //mendeskripsikan atribut
+// const { title, author, genres, publicationDate, pages, reviews } = book;
+
+// // const primaryGenre = genres[0]
+// // const secondaryGenre = genres[1]
+
+// const [primaryGenre, secondaryGenre] = genres;
+
+// console.log(primaryGenre, secondaryGenre);
+
+// //cara membuat function biasa
+// // function getYear(str) {
+// //   return str.split('-')[0]
+// // }
+
+// //arrow function
+// const getYear = (str) => str.split("-")[0];
+
+// //split date by (-)
+// const sumary = ` ${title}, with ${pages} pages ${getYear(
+//   publicationDate
+// )} ini adalah contoh sumary`;
+
+// const ternary = book.pages > 100 ? "bukune tebel" : "bukune sing tebel";
+
+// ternary;
+
+// sumary;
+
+// console.log(getYear(publicationDate));
+
+// console.log(false && "salah");
+// console.log(false || "bener");
+// console.log(true && "otomatis nampilin ini");
+
+// const translateBengali = book.translations.bengali || "sing ade";
+
+// console.log(translateBengali);
+
+// console.log(
+//   book.reviews.goodreads.ratingsCount + book.reviews.librarything.ratingsCount
+// );
+
+// function totalRating(book) {
+//   const goodreads = book.reviews.goodreads?.reviewsCount;
+//   const librarything = book.reviews?.librarything?.reviewsCount ?? 0;
+//   librarything;
+//   goodreads;
+//   return librarything + goodreads;
+// }
+
+// console.log(totalRating(book));
+// */
+
+// //map method
+// const y = [1, 2, 3].map((e) => e * 2);
+
+// const books = getBooks();
+// books;
+
+// // const title = books.map((book) => book.title)
+// // title;
+
+// // const title = books.title;
+// // title;
+
+// // const penting = {
+// //   title: books.title,
+// //   author: books.author,
+// //   pages: books.pages,
+// // };
+
+// // penting;
+
+// /*cara untuk menampilkan data yang kita perlu saja
+// penggunaan ({}) agar tidak perlu penuliskan return pada map method
+// jika hanya arrow function akan dianggap sebagai decralation*/
+
+// const essensialData = books.map((books) => ({
+//   title: books.title,
+//   author: books.author,
+//   pages: books.pages,
+// }));
+// essensialData;
+
+// /*
+// kegunaan filter disini untuk memfilter data sesuai keinginan, dapat dilakuan dengan dua cara yaitu menulis 1 1 kondisi filter
+// atau menambahkan && untuk menuliskan kondisi berikutnya.
+// */
+// //Filter method
+// const longBooks = books.filter(
+//   (books) => books.pages > 500 && books.hasMovieAdaptation
+// );
+// longBooks;
+
+// const genreFilter = books.filter((books) => books.genres.includes("fantasy"));
+// genreFilter;
+
+// //Filter method + map
+// const longBookTittle = books
+//   .filter((books) => books.pages > 500)
+//   .map((books) => books.title);
+// longBookTittle;
+
+// //reduce method
+// /*
+// digunakan untuk membuat seperti looping dengan menggunakan akumulasi
+// setelah method reduce, isi 2 callback value. 1 buat akumulasi 1 buat ngambil data nya. acc buat nyimpen initial values nanti (jadi array ke 0).
+// */
+// const totalPages = books.reduce((acc, book) => acc + book.pages, 0);
+// totalPages;
+
+// //sort method
+// /*
+// untuk mengurutkan array
+// jika ingin memanggil array tanpa melalui sort dapat ditambahkan slice()
+// dengan slice, jika ingin memanggil array yang sudah mengalami sort harus memanggil functionnya
+// */
+// // const number = [6, 9, 3, 2, 10];
+// // const numberSort = number.slice().sort((x, y) => x - y);
+// // numberSort;
+// // number;
+
+// //pengurutan data dengan asc
+// const sortedByPages = books.sort((a, b) => a.pages - b.pages);
+// sortedByPages;
+
+// //pengurutan data dengan desc
+// const sortedByPagesDesc = books.sort((a, b) => b.pages - a.pages);
+
+// //Add new data
+// /*
+// menambahkan data baru tanpa mengubah data yang sudah ada.
+// caranya dengan membuat object data baru dan menambahkan pada data yang sudah ada
+// */
+
+// const newBook = {
+//   id: 6,
+//   title: "the pig with the Bangsat",
+//   author: "awake",
+// };
+
+// const bookAfterAdd = [...books, newBook];
+// bookAfterAdd;
+
+// //Delete new Data
+// /*
+// Contoh disini menggunakan logic penampilkan data selain data yang didelete.
+// caranya dengan mengembalikan value hasil filter bukann dari data yang diinginkan menggunakan filter method
+// */
+
+// const bookAfterDelete = bookAfterAdd.filter((book) => book.id !== 4);
+// bookAfterDelete;
+
+// //update data
+// /*
+// update data digunakan untuk mengubah data yang sudah ada dengan nilai yang kita inginkan.
+// pada contoh ini data tujuan akan dicari mengunakan ternary option untuk menambahkan value yang sesuai.
+// pada update data dapat digunakan map method karena map method digunakan untuk manipulasi data
+// */
+
+// const bookAfterUpdate = bookAfterDelete.map((book) =>
+//   book.id == 1 ? { ...book, author: "nyen nawang" } : book
+// );
+// bookAfterUpdate;
+
+/*
+//pengambilan data menggunakan fetch method
+fetch("https://jsonplaceholder.typicode.com/todos")
+  .then((res) => res.json())
+  .then((data) => console.log(data));
+
+console.log("ini duluan, karna javascript perlu waktu buat fetch API");
+*/
+
+//pengambilan data menggunakan async function
+/* 
+disini javascript tidak akan melewati line sebelum line pertama selesai
+pada fungsi async ditambahkan await untuk memberikan perintah js menunggu proses line tersebut selesai terlebih dahulu.
+*/
+async function getTodos() {
+  const res = await fetch("https://jsonplaceholder.typicode.com/todos");
+  const data = await res.json();
+  console.log(data);
+
+  return data;
+}
+
+getTodos();
