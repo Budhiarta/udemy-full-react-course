@@ -4,6 +4,21 @@ import ReactDom from "react-dom/client";
 function App() {
   return (
     <>
+      <Header />
+      <Menu />
+      <Footer />
+    </>
+  );
+}
+
+function Header() {
+  return <h1>Light Speed PIZZA</h1>;
+}
+
+function Menu() {
+  return (
+    <>
+      <h2>OUR MENU</h2>
       <Pizza />;
       <Pizza />;
       <Pizza />;
@@ -11,12 +26,16 @@ function App() {
   );
 }
 
+function Footer() {
+  return <footer>We already open {new Date().toLocaleTimeString()}</footer>;
+}
+
 function Pizza() {
   return (
     <>
-      <h2>Pizza Focaccia </h2>
+      <h3>Pizza Focaccia </h3>
       <p>Bread with italian olive oil and rosemary super test</p>
-      <img src="../assets/pizzas/focaccia.jpg" />
+      <img src="../assets/pizzas/focaccia.jpg" alt="pizza" />
     </>
   );
 }
