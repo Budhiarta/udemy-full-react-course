@@ -12,6 +12,16 @@ function App() {
 }
 
 function Header() {
+  const hour = new Date().getHours();
+  const openHour = 10;
+  const clossedHour = 22;
+  const isOpen = hour >= openHour && hour <= clossedHour;
+  console.log(isOpen);
+
+  //js logic on function
+  // if (hour >= openHour && hour <= clossedHour) alert("we're Already open");
+  // else alert("we're Clossed");
+
   return <h1>Light Speed PIZZA</h1>;
 }
 
