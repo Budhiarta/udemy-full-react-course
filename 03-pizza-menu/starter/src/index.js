@@ -34,9 +34,18 @@ function Menu() {
   return (
     <main className="menu">
       <h2>OUR MENU</h2>
-      <Pizza />;
-      <Pizza />;
-      <Pizza />;
+      <Pizza
+        name="Pizza Focaccia"
+        inggridients="Bread with italian olive oil and rosemary super"
+        price={10}
+        photoName="../assets/pizzas/focaccia.jpg"
+      />
+      <Pizza
+        name="Pizza funghi"
+        inggridients="Tomato, mozarella, mushrooms, and onion"
+        price={13}
+        photoName="../assets/pizzas/funghi.jpg"
+      />
     </main>
   );
 }
@@ -49,13 +58,16 @@ function Footer() {
   );
 }
 
-function Pizza() {
+function Pizza(props) {
   return (
-    <>
-      <h3>Pizza Focaccia </h3>
-      <p>Bread with italian olive oil and rosemary super test</p>
-      <img src="../assets/pizzas/focaccia.jpg" alt="pizza" />
-    </>
+    <div className="pizza">
+      <img src={props.photoName} alt={props.name} />
+      <div>
+        <h3>{props.name} </h3>
+        <p>{props.inggridients}</p>
+        <span>{props.price}</span>
+      </div>
+    </div>
   );
 }
 
