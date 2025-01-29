@@ -36,8 +36,8 @@ function Menu() {
       <h2>OUR MENU</h2>
       <Pizza
         name="Pizza Focaccia"
-        inggridients="Bread with italian olive oil and rosemary super"
-        price={10}
+        inggridients="Bread with italian olive oil and rosemary"
+        price={6}
         photoName="../assets/pizzas/focaccia.jpg"
       />
       <Pizza
@@ -45,6 +45,30 @@ function Menu() {
         inggridients="Tomato, mozarella, mushrooms, and onion"
         price={13}
         photoName="../assets/pizzas/funghi.jpg"
+      />
+      <Pizza
+        name="Pizza Margherita"
+        inggridients="Tomato and mozarella"
+        price={10}
+        photoName="../assets/pizzas/margherita.jpg"
+      />
+      <Pizza
+        name="Pizza Spinaci"
+        inggridients="Tomato, mozarella, spinach, and ricotta cheese"
+        price={12}
+        photoName="../assets/pizzas/spinaci.jpg"
+      />
+      <Pizza
+        name="Pizza Salamino"
+        inggridients="Tomato, mozarella, and pepperoni"
+        price={15}
+        photoName="../assets/pizzas/salamino.jpg"
+      />
+      <Pizza
+        name="Pizza Prosciutto"
+        inggridients="Tomato, mozarella, ham, aragula, and burrata cheese"
+        price={18}
+        photoName="../assets/pizzas/prosciutto.jpg"
       />
     </main>
   );
