@@ -70,8 +70,8 @@ function Header() {
 }
 
 function Menu() {
-  // const pizzas = pizzaData;
-  const pizzas = [];
+  const pizzas = pizzaData;
+  // const pizzas = [];
   const dataLenght = pizzas.length;
 
   return (
@@ -139,13 +139,25 @@ function Footer() {
     <footer className="footer">
       {/* We already open {new Date().toLocaleTimeString()} */}
       {/* menggunakan & operator untuk menampilkan data dengan 1 kondisi */}
-      {isOpen && (
-        <div className="order">
-          <p>we already open until {clossedHour}:00. Don't forget to order</p>
-          <button className="btn">Order</button>
-        </div>
+      {isOpen ? (
+        <Order clossedHour={clossedHour} />
+      ) : (
+        // pada pemanggilan komponen order diatas ini sudah menggunakan props agar properti dari komponen footer nantinya bisa digunakan dalam komponen order
+        <p>
+          we're happy to welcome you from {openHour}:00 until {clossedHour}:00.
+        </p>
       )}
     </footer>
+  );
+}
+
+function Order(props) {
+  // pada komponen ini ada contoh menggunakan props yang dimana props menjadi parameter dan pemanggilan props sama dengan nama yang sudah di assign pada komponen parent.
+  return (
+    <div className="order">
+      <p>we already open until {props.clossedHour}:00. Don't forget to order</p>
+      <button className="btn">Order</button>
+    </div>
   );
 }
 
