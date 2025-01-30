@@ -58,12 +58,6 @@ function App() {
 }
 
 function Header() {
-  const hour = new Date().getHours();
-  const openHour = 10;
-  const clossedHour = 22;
-  const isOpen = hour >= openHour && hour <= clossedHour;
-  console.log(isOpen);
-
   //js logic on function
   // if (hour >= openHour && hour <= clossedHour) alert("we're Already open");
   // else alert("we're Clossed");
@@ -76,15 +70,23 @@ function Header() {
 }
 
 function Menu() {
+  // const pizzas = pizzaData;
+  const pizzas = [];
+  const dataLenght = pizzas.length;
+
   return (
     <main className="menu">
       <h2>OUR MENU</h2>
-
-      <ul className="pizzas">
-        {pizzaData.map((pizza) => (
-          <Pizza pizzaObj={pizza} key={pizza.name} />
-        ))}
-      </ul>
+      {/* menggunakan ternari untuk membalikan value 2 kondisi.  */}
+      {dataLenght > 0 ? (
+        <ul className="pizzas">
+          {pizzas.map((pizza) => (
+            <Pizza pizzaObj={pizza} key={pizza.name} />
+          ))}
+        </ul>
+      ) : (
+        <p>Were still working on the menu. Please comback letter :)</p>
+      )}
 
       {/* <Pizza
         name="Pizza Focaccia"
@@ -127,9 +129,22 @@ function Menu() {
 }
 
 function Footer() {
+  const hour = new Date().getHours();
+  const openHour = 10;
+  const clossedHour = 22;
+  const isOpen = hour >= openHour && hour <= clossedHour;
+  console.log(isOpen);
+
   return (
-    <footer className="menu">
-      We already open {new Date().toLocaleTimeString()}
+    <footer className="footer">
+      {/* We already open {new Date().toLocaleTimeString()} */}
+      {/* menggunakan & operator untuk menampilkan data dengan 1 kondisi */}
+      {isOpen && (
+        <div className="order">
+          <p>we already open until {clossedHour}:00. Don't forget to order</p>
+          <button className="btn">Order</button>
+        </div>
+      )}
     </footer>
   );
 }
