@@ -151,30 +151,30 @@ function Footer() {
   );
 }
 
-function Order(props) {
+function Order({ clossedHour }) {
   // pada komponen ini ada contoh menggunakan props yang dimana props menjadi parameter dan pemanggilan props sama dengan nama yang sudah di assign pada komponen parent.
   return (
     <div className="order">
-      <p>we already open until {props.clossedHour}:00. Don't forget to order</p>
+      <p>we already open until {clossedHour}:00. Don't forget to order</p>
       <button className="btn">Order</button>
     </div>
   );
 }
 
-function Pizza(props) {
-  console.log(props);
-
+function Pizza({ pizzaObj }) {
+  // mengganti props menjadi nama properti yang sudah di assign pada komponen parent.
+  // dengan memanggil nama properti langsung dapat disebut sebagai destructuring props
   return (
     <li className="pizza">
       <img
-        src={props.pizzaObj.photoName}
+        src={pizzaObj.photoName}
         // src={f}
-        alt={props.pizzaObjname}
+        alt={pizzaObj.name}
       />
       <div>
-        <h3>{props.pizzaObj.name} </h3>
-        <p>{props.pizzaObj.ingredients}</p>
-        <span>{props.pizzaObj.price}</span>
+        <h3>{pizzaObj.name} </h3>
+        <p>{pizzaObj.ingredients}</p>
+        <span>{pizzaObj.price}</span>
       </div>
     </li>
   );
