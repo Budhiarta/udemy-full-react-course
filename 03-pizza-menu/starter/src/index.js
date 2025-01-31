@@ -165,7 +165,8 @@ function Pizza({ pizzaObj }) {
   // mengganti props menjadi nama properti yang sudah di assign pada komponen parent.
   // dengan memanggil nama properti langsung dapat disebut sebagai destructuring props
   return (
-    <li className="pizza">
+    // menambahkan ternary untuk menampilkan data pizza yang ada berdasarkan properti soldOut
+    <li className={`pizza ${pizzaObj.soldOut ? "sold-out" : ""}`}>
       <img
         src={pizzaObj.photoName}
         // src={f}
@@ -174,7 +175,7 @@ function Pizza({ pizzaObj }) {
       <div>
         <h3>{pizzaObj.name} </h3>
         <p>{pizzaObj.ingredients}</p>
-        <span>{pizzaObj.price}</span>
+        <span>{pizzaObj.soldOut ? "SOLD OUT" : pizzaObj.price}</span>
       </div>
     </li>
   );
